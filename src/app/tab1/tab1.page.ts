@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -9,9 +9,27 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page implements OnInit {
 
+  leagues:any;
+  teams:any;
+  players:any;
+
   formData!: FormGroup;
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private dataService:DataService) {
+
+    this.dataService.getLeagues().subscribe(res =>{
+      this.leagues = res;
+    });
+
+    this.dataService.getTeams().subscribe(res =>{
+      this.teams = res;
+    });
+
+    this.dataService.getPlayers().subscribe(res =>{
+      this.players = res;
+      console.log(res);
+    });
+  }
 
   ngOnInit(): void {
     this.formData = new FormGroup({
@@ -50,6 +68,13 @@ export class Tab1Page implements OnInit {
     //teams 
 
     
+    this.dataService.addGame({
+      homeScore:score1,
+      awayScore:score2,
+      homeTeam:team1,
+      awayTeam:team2,
+      rounds:rounds,
+      date:"10/10/02"})
 
     this.popupAlert("Score Submission", "success", message, "OK");
     }

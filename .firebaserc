@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "testing-c0740": {
+      "hosting": {
+        "app": [
+          "testing-c0740"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "testing-c0740"
+  }
+}

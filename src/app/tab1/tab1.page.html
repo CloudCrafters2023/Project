@@ -25,9 +25,9 @@
     <ion-label class="ion-padding">League</ion-label>
     <ion-item>
       <ion-select formControlName="league" interface="popover" placeholder="Select League">
-        <ion-select-option value="League 1">League 1</ion-select-option>
-        <ion-select-option value="League 2">League 2</ion-select-option>
-        <ion-select-option value="League 3">League 3</ion-select-option>
+        <ion-item *ngFor="let league of leagues">
+          <ion-select-option value="{{league.id}}">{{league.league_name}}</ion-select-option>
+        </ion-item>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -36,9 +36,9 @@
     <ion-label class="ion-padding">Team 1</ion-label>
     <ion-item>
       <ion-select formControlName="team1" interface="popover" placeholder="Select Team 1">
-        <ion-select-option value="Teame Name 1">Team Name 1</ion-select-option>
-        <ion-select-option value="Team Name 2">Team Name 2</ion-select-option>
-        <ion-select-option value="Team Name 3">Team Name 3</ion-select-option>
+        <ion-item *ngFor="let team of teams">
+          <ion-select-option value="{{team.id}}">{{team.team_name}}</ion-select-option>
+        </ion-item>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -47,9 +47,9 @@
     <ion-label class="ion-padding">Team 2</ion-label>
     <ion-item>
       <ion-select formControlName="team2" interface="popover" placeholder="Select Team 2">
-        <ion-select-option value="Team Name 4">Team Name 4</ion-select-option>
-        <ion-select-option value="Team Name 5">Team Name 5</ion-select-option>
-        <ion-select-option value="Team Name 6">Team Name 6</ion-select-option>
+        <ion-item *ngFor="let team of teams">
+          <ion-select-option value="{{team.id}}">{{team.team_name}}</ion-select-option>
+        </ion-item>
       </ion-select>
     </ion-item>
   </ion-list>
